@@ -39,12 +39,3 @@ STATIC_ASSERT(sizeof(f64) == 8, "f64 is not 8 bytes");
 
 #define TRUE 1
 #define FALSE 0
-
-// Platform detection
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32__)
-#define KPLATFORM_WINDOWS 1
-#ifndef _WIN64
-#error "64-bit Windows is required!"
-#endif // !_WIN64
-#endif // WIN32 || _WIN32 || __WIN32__
-
