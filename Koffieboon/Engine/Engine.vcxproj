@@ -84,9 +84,11 @@
     <ClInclude Include="src\Koffieboon.h" />
     <ClInclude Include="src\Koffieboon\Defines.h" />
     <ClInclude Include="src\Koffieboon\Core.h" />
+    <ClInclude Include="src\Koffieboon\Test.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Koffieboon\Application.cpp" />
+    <ClCompile Include="src\Koffieboon\Test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
