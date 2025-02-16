@@ -39,3 +39,13 @@ STATIC_ASSERT(sizeof(f64) == 8, "f64 is not 8 bytes");
 
 #define TRUE 1
 #define FALSE 0
+
+#ifdef KB_PLATFORM_WINDOWS
+#ifdef KB_BUILD_DLL
+#define KOFFIEBOON_API __declspec(dllexport)
+#else
+#define KOFFIEBOON_API __declspec(dllimport)
+#endif
+#else
+#error "Koffieboon only supports windows for now!"
+#endif

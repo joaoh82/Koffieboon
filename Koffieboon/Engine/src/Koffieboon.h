@@ -5,4 +5,4 @@
 #include "Koffieboon/Application.h"
 #include "Koffieboon/Core.h"
 #include "Koffieboon/Defines.h"
-#include "Koffieboon/Test.h"
+#include "Koffieboon/core/Logger.h"

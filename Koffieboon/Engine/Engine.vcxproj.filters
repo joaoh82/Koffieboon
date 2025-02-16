@@ -27,7 +27,7 @@
     <ClInclude Include="src\Koffieboon\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Koffieboon\Test.h">
+    <ClInclude Include="src\Koffieboon\core\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="src\Koffieboon\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Koffieboon\Test.cpp">
+    <ClCompile Include="src\Koffieboon\core\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
