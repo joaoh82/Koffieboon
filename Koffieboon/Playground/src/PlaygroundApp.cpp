@@ -25,6 +25,9 @@ int main() {
 	KB_DEBUG("This is a debug message\n");
 	KB_TRACE("This is a trace message\n");
 
+	// Test assertions
+	KASSERT(1 == 0);
+
 	playground->Run();
 
 	delete playground;

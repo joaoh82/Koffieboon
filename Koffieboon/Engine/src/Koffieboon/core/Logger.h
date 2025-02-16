@@ -36,6 +36,7 @@ namespace Koffieboon
 
 
 		static void LogOutput(LogLevel level, const char* message, ...);
+
 	};
 }
 

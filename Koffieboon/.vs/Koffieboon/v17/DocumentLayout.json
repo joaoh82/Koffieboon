@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{46F22C8A-75B6-4F5C-93A6-A265A6B5B5F2}|Playground\\Playground.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Playground\\src\\PlaygroundApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{46F22C8A-75B6-4F5C-93A6-A265A6B5B5F2}|Playground\\Playground.vcxproj|solutionrelative:Playground\\src\\PlaygroundApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Asserts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|solutionrelative:Engine\\src\\Koffieboon\\core\\Asserts.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Logger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|solutionrelative:Engine\\src\\Koffieboon\\core\\Logger.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Logger.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|solutionrelative:Engine\\src\\Koffieboon\\core\\Logger.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Asserts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|solutionrelative:Engine\\src\\Koffieboon\\core\\Asserts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46F22C8A-75B6-4F5C-93A6-A265A6B5B5F2}|Playground\\Playground.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Playground\\src\\PlaygroundApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{46F22C8A-75B6-4F5C-93A6-A265A6B5B5F2}|Playground\\Playground.vcxproj|solutionrelative:Playground\\src\\PlaygroundApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Logger.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|solutionrelative:Engine\\src\\Koffieboon\\core\\Logger.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6850DDA1-4149-4D39-B3D6-917FB9A95EFC}|Engine\\Engine.vcxproj|D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -42,37 +50,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 116,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Asserts.cpp",
+              "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Asserts.cpp",
+              "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\core\\Asserts.cpp",
+              "ToolTip": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Asserts.cpp",
+              "RelativeToolTip": "Engine\\src\\Koffieboon\\core\\Asserts.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-16T20:52:33.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Asserts.h",
+              "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Asserts.h",
+              "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\core\\Asserts.h",
+              "ToolTip": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Asserts.h",
+              "RelativeToolTip": "Engine\\src\\Koffieboon\\core\\Asserts.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-16T20:40:24.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Logger.cpp",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Logger.cpp",
               "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\core\\Logger.cpp",
               "ToolTip": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Logger.cpp",
               "RelativeToolTip": "Engine\\src\\Koffieboon\\core\\Logger.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-16T20:30:59.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Logger.h",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Logger.h",
               "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\core\\Logger.h",
               "ToolTip": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\core\\Logger.h",
               "RelativeToolTip": "Engine\\src\\Koffieboon\\core\\Logger.h",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAUwEEAAABgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-16T20:21:43.602Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Application.cpp",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\Application.cpp",
               "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\Application.cpp",
@@ -84,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Application.h",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\Application.h",
               "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\Application.h",
@@ -92,12 +126,11 @@
               "RelativeToolTip": "Engine\\src\\Koffieboon\\Application.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-16T18:49:08.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-16T18:49:08.077Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Core.h",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\Core.h",
               "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\Core.h",
@@ -105,25 +138,24 @@
               "RelativeToolTip": "Engine\\src\\Koffieboon\\Core.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-16T18:28:44.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-16T18:28:44.293Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Koffieboon.h",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon.h",
               "RelativeDocumentMoniker": "Engine\\src\\Koffieboon.h",
               "ToolTip": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon.h",
               "RelativeToolTip": "Engine\\src\\Koffieboon.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-02-16T18:13:22.543Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Defines.h",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Engine\\src\\Koffieboon\\Defines.h",
               "RelativeDocumentMoniker": "Engine\\src\\Koffieboon\\Defines.h",
@@ -131,18 +163,17 @@
               "RelativeToolTip": "Engine\\src\\Koffieboon\\Defines.h",
               "ViewState": "AgIAAAIAAAAAAAAAAAAUwBoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-16T17:25:07.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-16T17:25:07.374Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PlaygroundApp.cpp",
               "DocumentMoniker": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Playground\\src\\PlaygroundApp.cpp",
               "RelativeDocumentMoniker": "Playground\\src\\PlaygroundApp.cpp",
               "ToolTip": "D:\\gamedev\\NurtStudios\\koffieboon-cpp\\Koffieboon\\Playground\\src\\PlaygroundApp.cpp",
               "RelativeToolTip": "Playground\\src\\PlaygroundApp.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-16T17:21:14.373Z",
               "EditorCaption": ""

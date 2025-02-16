@@ -82,12 +82,14 @@
   <ItemGroup>
     <ClInclude Include="src\Koffieboon\Application.h" />
     <ClInclude Include="src\Koffieboon.h" />
+    <ClInclude Include="src\Koffieboon\core\Asserts.h" />
     <ClInclude Include="src\Koffieboon\core\Logger.h" />
     <ClInclude Include="src\Koffieboon\Defines.h" />
     <ClInclude Include="src\Koffieboon\Core.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Koffieboon\Application.cpp" />
+    <ClCompile Include="src\Koffieboon\core\Asserts.cpp" />
     <ClCompile Include="src\Koffieboon\core\Logger.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

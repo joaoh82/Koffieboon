@@ -1,4 +1,5 @@
 #include "Logger.h"
+#include "Asserts.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -56,4 +57,6 @@ namespace Koffieboon
 		vprintf(message, args);
 		va_end(args);
 	}
+
 }
+

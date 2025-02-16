@@ -1,2 +1,5 @@
-﻿  Logger.cpp
+﻿  Asserts.cpp
+  Logger.cpp
+  Generating Code...
+     Creating library D:\gamedev\NurtStudios\koffieboon-cpp\Koffieboon\bin\Debug-x64\Engine\Engine.lib and object D:\gamedev\NurtStudios\koffieboon-cpp\Koffieboon\bin\Debug-x64\Engine\Engine.exp
   Engine.vcxproj -> D:\gamedev\NurtStudios\koffieboon-cpp\Koffieboon\bin\Debug-x64\Engine\Engine.dll
