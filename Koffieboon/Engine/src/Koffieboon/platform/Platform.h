@@ -1,30 +1,21 @@
 #pragma once
 
 #include "../Defines.h"
+#include "GLFW/glfw3.h"
 
-typedef struct platform_state
+typedef enum WindowMode
 {
-	void* internal_state;
-} platform_state;
+	WindowMode_Windowed,
+	WindowMode_Fullscreen
+} WindowMode;
 
-b8 PlatformStartup(
-	platform_state* plat_state,
-	const char* application_name,
-	i32 x,
-	i32 y,
+KOFFIEBOON_API b8 PlatformStartup(
 	i32 width,
-	i32 height);
+	i32 height,
+	const char* application_name,
+	WindowMode window_mode,
+	GLFWwindow* share);
 
-void PlatformShutdown(platform_state* plat_state);
+void PlatformShutdown();
 
-b8 PlatformPumpMessages(platform_state* plat_state);
-
-void* PlatformAllocate(u64 size, b8 aligned);
-
-void PlatformFree(void* memory_block, b8 aligned);
-
-void* PlatformZeroMemory(void* memory_block, u64 size);
-
-void* PlatformCopyMemory(void* destination, const void* source, u64 size);
-
-void* PlatformSetMemory(void* destination, i32 value, u64 size);
+b8 PlatformPumpMessages(GLFWwindow* window);
