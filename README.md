@@ -1,5 +1,8 @@
 # Koffieboon Game Engine
 
+![Koffieboon Game Engine](images/Logo.png)
+
+
 This engine is made from the ground up using C++ and supporting Vulkan.
 
 # What is the plan?
