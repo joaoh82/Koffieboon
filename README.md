@@ -2,27 +2,61 @@
 
 ![Koffieboon Game Engine](images/Logo.png)
 
-
 This engine is made from the ground up using C++ and supporting Vulkan.
 
 # What is the plan?
 
-Koffieboon is a 3D engine from the start, with most of it built from scratch taking inspiration from different learning sources. My plan is to have to code very well commented and whatever other documentation I find relevant to make the understand easy and be used as a learning source also.
+Koffieboon is a 3D engine from the start, with most of it built from scratch taking inspiration from different learning sources. My plan is to have to code very well commented and whatever other documentation I find relevant to make the understanding of the code easy and be used as a learning source also.
 
-# Roadmap
+# High level design
 
-- [ ] Fully 3D engine with various lighting models and material types available (Basic 3d lighting, Physically-Based Rendering, etc.)
-- [ ] Cross-platform support (Windows and later Linux and Mac)
-- [ ] Multiple rendering backends:
-    - [ ] Vulkan first
-    - [ ] Eventually adding OpenGL and DirectX and potentially Metal
-- [ ] Suite of editor tools - Maybe using https://avaloniaui.net/
-- [ ] Asset/Game Code hot-reload support
-- [ ] Physics
-- [ ] 2D/3D Sound
-- [ ] Full-fledged UI system
-- [ ] Event system
-- [ ] Standard Keyboard/Mouse input along with eventual GamePad input
+![Engine Organization](images/Organization.png)
+
+# Engine Architecture
+
+![Engine Architecture](images/Architecture.png)
+
+# Roadmap Features list (Not an exhaustive list)
+
+- [ ] Build system
+- [ ] Low-level utilities (dynamic arrays, string handling, math utilities, etc.)
+- [ ] Platform Layer 
+    - [ ] Windowing
+    - [ ] Input
+    - [ ] Console Interaction
+- [ ] Logging
+- [ ] File I/O
+- [ ] Application Layer
+    - [ ] Game Loop
+    - [ ] Calling the render loop
+    - [ ] Updating the physics system
+- [ ] Renderer/API Abstraction Layer
+    - [ ] Vulkan
+    - [ ] OpenGL
+    - [ ] DirectX
+- [ ] Memory management
+    - [ ] Custom allocator
+    - [ ] Job system
+    - [ ] Job system with dependency graph
+- [ ] Scene Graph
+    - [ ] Entity Component System
+    - [ ] Scene Hierarchy
+    - [ ] Scene Management
+- [ ] Scripting
+    - [ ] Lua
+- [ ] Physics System
+    - [ ] Collision Detection
+    - [ ] Rigid Body Dynamics
+    - [ ] Soft Body Physics
+    - [ ] Fluid Dynamics
+- [ ] Profiling
+    - [ ] Tracing
+    - [ ] Profiling UI
+- [ ] Asset Loading
+    - [ ] Model Loading
+    - [ ] Texture Loading
+    - [ ] Animation Loading
+    
 
 ## Platform support
 
