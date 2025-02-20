@@ -1,3 +1,4 @@
+#include "kbpch.h"
 #include "Asserts.h"
 #include "Logger.h"
 

@@ -1,3 +1,4 @@
+#include "kbpch.h"
 #include "Platform.h"
 
 b8 PlatformStartup(i32 width, i32 height, const char* application_name, WindowMode window_mode, GLFWwindow* share)
