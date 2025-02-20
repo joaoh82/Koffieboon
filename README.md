@@ -56,7 +56,17 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
     - [ ] Model Loading
     - [ ] Texture Loading
     - [ ] Animation Loading
-    
+- [ ] Audio
+    - [ ] 2D/3D Sound
+    - [ ] Music
+    - [ ] Sound Effects 
+- [ ] UI / Editor
+    - [ ] ImGUI
+    - [ ] https://avaloniaui.net/
+- [ ] Animation
+    - [ ] 2D Animation
+    - [ ] 3D Animation
+- [ ] Particle System
 
 ## Platform support
 
