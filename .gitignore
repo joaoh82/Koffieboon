@@ -2,4 +2,5 @@
 .vs/
 bin/
 bin-intermediate/
+bin-int/
 libraries/
