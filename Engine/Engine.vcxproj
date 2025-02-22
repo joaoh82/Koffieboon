@@ -57,14 +57,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>KB_PLATFORM_WINDOWS;KB_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src;D:\gamedev\NurtStudios\koffieboon-cpp\Koffieboon\third_party\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\vendor\spdlog\include;D:\gamedev\NurtStudios\koffieboon-cpp\Koffieboon\Engine\vendor\glfw\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>kbpch.h</PrecompiledHeaderFile>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)third_party\glfw\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Engine\vendor\glfw\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -76,16 +77,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>KB_PLATFORM_WINDOWS;KB_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>src;D:\gamedev\NurtStudios\koffieboon-cpp\Koffieboon\third_party\glfw\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\vendor\spdlog\include;D:\gamedev\NurtStudios\koffieboon-cpp\Koffieboon\Engine\vendor\glfw\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>kbpch.h</PrecompiledHeaderFile>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)third_party\glfw\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Engine\vendor\glfw\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -98,8 +100,10 @@
     <ClInclude Include="src\Koffieboon\Defines.h" />
     <ClInclude Include="src\Koffieboon\Core.h" />
     <ClInclude Include="src\Koffieboon\EntryPoint.h" />
-    <ClInclude Include="src\Koffieboon\platform\Platform.h" />
-    <ClInclude Include="src\Koffieboon\platform\Window.h" />
+    <ClInclude Include="src\Koffieboon\platform\Platform_DEPRECATED.h" />
+    <ClInclude Include="src\Koffieboon\platform\Window_DEPRECATED.h" />
+    <ClInclude Include="src\Koffieboon\platform\Windows\WindowsGLFW.h" />
+    <ClInclude Include="src\Koffieboon\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\kbpch.cpp">
@@ -109,8 +113,9 @@
     <ClCompile Include="src\Koffieboon\Application.cpp" />
     <ClCompile Include="src\Koffieboon\core\Asserts.cpp" />
     <ClCompile Include="src\Koffieboon\core\Logger.cpp" />
-    <ClCompile Include="src\Koffieboon\platform\PlatformWin32.cpp" />
-    <ClCompile Include="src\Koffieboon\platform\Window.cpp" />
+    <ClCompile Include="src\Koffieboon\platform\PlatformWin32_DEPRECATED.cpp" />
+    <ClCompile Include="src\Koffieboon\platform\Window_DEPRECATED.cpp" />
+    <ClCompile Include="src\Koffieboon\platform\Windows\WindowsGLFW.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

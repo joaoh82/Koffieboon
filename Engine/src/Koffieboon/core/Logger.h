@@ -1,6 +1,10 @@
 #pragma once
 
-#include "../Defines.h"
+#include "Koffieboon/Defines.h"
+#include <memory>
+
+#include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 #define LOG_WARN_ENABLED 1
 #define LOG_INFO_ENABLED 1
@@ -31,40 +35,55 @@ namespace Koffieboon
 	class KOFFIEBOON_API Logger
 	{
 	public:
-		static b8 InitializeLogging();
+		static void InitializeLogging();
 		static void ShutdownLogging();
 
+		inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
+		inline static std::shared_ptr<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }
 
 		static void LogOutput(LogLevel level, const char* message, ...);
+
+	private:
+		static std::shared_ptr<spdlog::logger> s_CoreLogger;
+		static std::shared_ptr<spdlog::logger> s_ClientLogger;
 
 	};
 }
 
-// Define the logging macros
-#define KB_FATAL(message, ...) Koffieboon::Logger::LogOutput(LogLevel::LOG_LEVEL_FATAL, message, __VA_ARGS__)
 
-#define KB_ERROR(message, ...) Koffieboon::Logger::LogOutput(LogLevel::LOG_LEVEL_ERROR, message, __VA_ARGS__)
+// Define the logging macros
+
+// These are always enabled
+#define KB_CORE_FATAL(...)    ::Koffieboon::Logger::GetCoreLogger()->critical(__VA_ARGS__)
+#define KB_FATAL(...)	      ::Koffieboon::Logger::GetClientLogger()->critical(__VA_ARGS__)
+
+#define KB_CORE_ERROR(...)    ::Koffieboon::Logger::GetCoreLogger()->error(__VA_ARGS__)
+#define KB_ERROR(...)	      ::Koffieboon::Logger::GetClientLogger()->error(__VA_ARGS__)
 
 #if LOG_WARN_ENABLED
-#define KB_WARN(message, ...) Koffieboon::Logger::LogOutput(LogLevel::LOG_LEVEL_WARN, message, __VA_ARGS__)
+#define KB_CORE_WARN(...)     ::Koffieboon::Logger::GetCoreLogger()->warn(__VA_ARGS__)
+#define KB_WARN(...)	      ::Koffieboon::Logger::GetClientLogger()->warn(__VA_ARGS__)
 #else
 #define KB_WARN(...)
 #endif
 
 #if LOG_INFO_ENABLED
-#define KB_INFO(message, ...) Koffieboon::Logger::LogOutput(LogLevel::LOG_LEVEL_INFO, message, __VA_ARGS__)
+#define KB_CORE_INFO(...)     ::Koffieboon::Logger::GetCoreLogger()->info(__VA_ARGS__)
+#define KB_INFO(...)	      ::Koffieboon::Logger::GetClientLogger()->info(__VA_ARGS__)
 #else
 #define KB_INFO(...)
 #endif
 
 #if LOG_DEBUG_ENABLED
-#define KB_DEBUG(message, ...) Koffieboon::Logger::LogOutput(LogLevel::LOG_LEVEL_DEBUG, message, __VA_ARGS__)
+#define KB_CORE_DEBUG(...)    ::Koffieboon::Logger::GetCoreLogger()->debug(__VA_ARGS__)
+#define KB_DEBUG(...)	      ::Koffieboon::Logger::GetClientLogger()->debug(__VA_ARGS__)
 #else
 #define KB_DEBUG(...)
 #endif
 
 #if LOG_TRACE_ENABLED
-#define KB_TRACE(message, ...) Koffieboon::Logger::LogOutput(LogLevel::LOG_LEVEL_TRACE, message, __VA_ARGS__)
+#define KB_CORE_TRACE(...)    ::Koffieboon::Logger::GetCoreLogger()->trace(__VA_ARGS__)
+#define KB_TRACE(...)	      ::Koffieboon::Logger::GetClientLogger()->trace(__VA_ARGS__)
 #else
 #define KB_TRACE(...)
 #endif

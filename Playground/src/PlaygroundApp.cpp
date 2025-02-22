@@ -6,6 +6,8 @@ public:
 	Playground()
 	{
 		//PlatformStartup(1280, 720, "Playground", WindowMode_Windowed, nullptr);
+		KASSERT_MSG(1, "This is a test");
+		KASSERT_MSG(0, "This is a failed test");
 	}	
 	~Playground()
 	{
@@ -15,12 +17,5 @@ public:
 
 Koffieboon::Application* Koffieboon::CreateApplication()
 {
-	Koffieboon::Window window(1280, 720, "Playground");
-
-	while (!window.ShouldClose())
-	{
-		window.PollEvents();
-	}
-	
 	return new Playground();
 }

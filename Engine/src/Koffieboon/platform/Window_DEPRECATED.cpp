@@ -1,5 +1,5 @@
 #include "kbpch.h"
-#include "Window.h"
+#include "Window_DEPRECATED.h"
 #include <iostream>
 
 namespace Koffieboon

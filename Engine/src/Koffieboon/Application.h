@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Defines.h"
-#include "platform/Window.h"
+#include "Window.h"
 
 namespace Koffieboon
 {

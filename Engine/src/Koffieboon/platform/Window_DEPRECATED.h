@@ -20,6 +20,7 @@ namespace Koffieboon
 		}
 	};
 
+	// Interface representing a desktop system based Window
 	class KOFFIEBOON_API Window {
 	public:
 		Window(i32 width, i32 height, const char* application_name);
