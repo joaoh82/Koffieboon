@@ -19,12 +19,15 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
 # Roadmap Features list (Not an exhaustive list)
 
 - [ ] Build system
+    - [ ] CMake / Premake
+    - [x] Build configuration for Debug, Release, etc.
+    - [ ] Build for Windows
 - [ ] Low-level utilities (dynamic arrays, string handling, math utilities, etc.)
 - [ ] Platform Layer 
-    - [ ] Windowing
+    - [x] Windowing
     - [ ] Input
     - [ ] Console Interaction
-- [ ] Logging
+- [x] Logging
 - [ ] File I/O
 - [ ] Application Layer
     - [ ] Game Loop
