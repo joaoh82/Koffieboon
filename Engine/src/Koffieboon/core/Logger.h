@@ -28,7 +28,7 @@ typedef enum LogLevel
 	LOG_LEVEL_INFO = 3,
 	LOG_LEVEL_DEBUG = 4,
 	LOG_LEVEL_TRACE = 5
-} LogLevel;
+} LogLevel; 
 
 namespace Koffieboon
 {
