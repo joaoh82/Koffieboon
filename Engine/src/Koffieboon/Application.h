@@ -3,6 +3,7 @@
 #include "Defines.h"
 #include "Window.h"
 #include "Events/Event.h"
+#include "Koffieboon/Events/ApplicationEvent.h"
 
 namespace Koffieboon
 {
@@ -14,7 +15,9 @@ namespace Koffieboon
 
 		void Run();
 
+		void OnEvent(Event& e);
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
 		
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
