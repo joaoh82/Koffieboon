@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Defines.h"
+#include "Koffieboon/Defines.h"
 
 // Disable assertions by commenting out this line
 #define KB_ENABLE_ASSERTS

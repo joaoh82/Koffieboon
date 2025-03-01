@@ -13,8 +13,8 @@
 #include <unordered_set>
 
 #include "Koffieboon/Defines.h"
-#include "Koffieboon/core/Logger.h"
-#include "Koffieboon/core/Asserts.h"
+#include "Koffieboon/Core/Logger.h"
+#include "Koffieboon/Core/Asserts.h"
 
 
 #ifdef KB_PLATFORM_WINDOWS

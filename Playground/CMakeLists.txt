@@ -6,6 +6,11 @@ set(PLAYGROUND_SOURCES
     # Add additional source files as needed.
 )
 
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    # Use the same settings as in Engine/CMakeLists.txt
+endif()
+
 add_executable(Playground ${PLAYGROUND_SOURCES})
 
 # Include directories for Playground:

@@ -18,7 +18,7 @@ namespace Koffieboon
 		}
 	};
 
-	// Interface representing a desktop system based Window
+	// Interface representing a desktop system based Window. Mobile dont have windows, they have views or surfaces.
 	class KOFFIEBOON_API Window 
 	{
 		public:
@@ -38,7 +38,11 @@ namespace Koffieboon
 			virtual void SetVSync(bool enabled) = 0;
 			virtual bool IsVSync() const = 0;
 
-			
+			/// <summary>
+			/// Create is a static function that creates a new window. It is platform specific.
+			/// </summary>
+			/// <param name="props">The properties of the window.</param>
+			/// <returns>A pointer to the window.</returns>
 			static Window* Create(const WindowProps& props = WindowProps());
 	};
 

@@ -5,11 +5,12 @@ namespace Koffieboon
 {
 	static bool s_GLFWInitialized = false;
 
+#ifdef KB_PLATFORM_WINDOWS
 	Window* Window::Create(const WindowProps& props)
 	{
 		return new WindowsGLFW(props);
 	}
-
+#endif
 	WindowsGLFW::WindowsGLFW(const WindowProps& props)
 	{
 		Init(props);

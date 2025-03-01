@@ -22,6 +22,7 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
     - [x] CMake
     - [x] Build configuration for Debug, Release, etc.
     - [x] Build for Windows
+- [x] Event System
 - [ ] Low-level utilities (dynamic arrays, string handling, math utilities, etc.)
 - [ ] Platform Layer 
     - [x] Windowing

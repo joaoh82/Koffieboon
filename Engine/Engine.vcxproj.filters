@@ -27,19 +27,13 @@
     <ClInclude Include="src\Koffieboon\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Koffieboon\core\Logger.h">
+    <ClInclude Include="src\Koffieboon\Core\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Koffieboon\core\Asserts.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Koffieboon\platform\Platform_DEPRECATED.h">
+    <ClInclude Include="src\Koffieboon\Core\Asserts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Koffieboon\EntryPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Koffieboon\platform\Window_DEPRECATED.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\kbpch.h">
@@ -48,7 +42,19 @@
     <ClInclude Include="src\Koffieboon\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Koffieboon\platform\Windows\WindowsGLFW.h">
+    <ClInclude Include="src\Koffieboon\Platform\Windows\WindowsGLFW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Koffieboon\Events\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Koffieboon\Events\ApplicationEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Koffieboon\Events\KeyEvent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Koffieboon\Events\MouseEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,22 +62,16 @@
     <ClCompile Include="src\Koffieboon\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Koffieboon\core\Logger.cpp">
+    <ClCompile Include="src\Koffieboon\Core\Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Koffieboon\core\Asserts.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Koffieboon\platform\PlatformWin32_DEPRECATED.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Koffieboon\platform\Window_DEPRECATED.cpp">
+    <ClCompile Include="src\Koffieboon\Core\Asserts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\kbpch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Koffieboon\platform\Windows\WindowsGLFW.cpp">
+    <ClCompile Include="src\Koffieboon\Platform\Windows\WindowsGLFW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

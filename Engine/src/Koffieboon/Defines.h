@@ -20,6 +20,11 @@ typedef double f64;
 typedef bool b8;
 typedef int b32;
 
+/// <summary>
+/// BIT is a macro that returns the bit at the specified index.
+/// </summary>
+#define BIT(x) (1 << x)
+
 // Properly define static assertions
 #define STATIC_ASSERT(expression, message) static_assert(expression, message)
 

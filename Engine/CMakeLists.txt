@@ -16,6 +16,19 @@ file(GLOB_RECURSE ENGINE_HEADERS
     "src/*.hpp"
 )
 
+# Add this at the top, after the file globbing
+if(MSVC)
+    # Force MSVC to use dynamic runtime libraries
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+    
+    # Or if you prefer static runtime:
+    # set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    
+    # Additional MSVC-specific options
+    string(REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+    string(REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+endif()
+
 # Create the shared library (DLL)
 add_library(Engine SHARED ${ENGINE_SOURCES} ${ENGINE_HEADERS})
 
@@ -40,6 +53,14 @@ target_link_libraries(Engine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/lib
 #
 # For this example, assume GLFW was added as a subdirectory and provides a target "glfw":
 # target_link_libraries(Engine PRIVATE glfw)
+# Add the new link options right after
+if(MSVC)
+    target_link_options(Engine 
+        PRIVATE 
+            $<$<CONFIG:Debug>:/NODEFAULTLIB:MSVCRT>
+            $<$<CONFIG:Release>:/NODEFAULTLIB:MSVCRTD>
+    )
+endif()
 
 # (Optional) Set any definitions needed for DLL export/import.
 # Add compile definitions for the Engine project.
