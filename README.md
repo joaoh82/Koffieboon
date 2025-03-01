@@ -2,7 +2,7 @@
 
 ![Koffieboon Game Engine](images/Logo.png)
 
-This engine is made from the ground up using C++ and supporting Vulkan.
+This engine is made from the ground up using C++ and supporting OpenGL.
 
 # What is the plan?
 
@@ -18,10 +18,10 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
 
 # Roadmap Features list (Not an exhaustive list)
 
-- [ ] Build system
-    - [ ] CMake / Premake
+- [x] Build system
+    - [x] CMake
     - [x] Build configuration for Debug, Release, etc.
-    - [ ] Build for Windows
+    - [x] Build for Windows
 - [ ] Low-level utilities (dynamic arrays, string handling, math utilities, etc.)
 - [ ] Platform Layer 
     - [x] Windowing
@@ -34,9 +34,7 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
     - [ ] Calling the render loop
     - [ ] Updating the physics system
 - [ ] Renderer/API Abstraction Layer
-    - [ ] Vulkan
     - [ ] OpenGL
-    - [ ] DirectX
 - [ ] Memory management
     - [ ] Custom allocator
     - [ ] Job system
