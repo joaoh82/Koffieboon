@@ -1,6 +1,7 @@
 #pragma once
 
 #include "kbpch.h"
+#include "Koffieboon/Events/Event.h"
 
 namespace Koffieboon
 {
@@ -22,7 +23,7 @@ namespace Koffieboon
 	class KOFFIEBOON_API Window 
 	{
 		public:
-			//Window(const WindowProps& props);
+			using EventCallbackFn = std::function<void(Event&)>;
 			
 			// Class destructor
 			virtual ~Window() {};
@@ -34,7 +35,7 @@ namespace Koffieboon
 			virtual unsigned int GetHeight() const = 0;
 
 			// Window attributes
-			//void SetEventCallback(const EventCallbackFn& callback) { m_Data.EventCallback = callback; }
+			virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 			virtual void SetVSync(bool enabled) = 0;
 			virtual bool IsVSync() const = 0;
 
