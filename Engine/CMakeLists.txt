@@ -49,7 +49,11 @@ target_include_directories(Engine
 # If you built GLFW via add_subdirectory, its target might be called "glfw" or "glfw3".
 # Otherwise, if you are linking to a prebuilt static GLFW, use its library file directly:
 #
-target_link_libraries(Engine PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/lib/glfw3.lib)
+target_link_libraries(Engine PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/lib/glfw3.lib
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glew/lib/Release/x64/glew32.lib
+    opengl32.lib
+)
 #
 # For this example, assume GLFW was added as a subdirectory and provides a target "glfw":
 # target_link_libraries(Engine PRIVATE glfw)
