@@ -38,7 +38,7 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
     - [ ] Calling the render loop
     - [ ] Updating the physics system
 - [ ] Renderer/API Abstraction Layer
-    - [ ] OpenGL
+    - [ ] OpenGL -> **In Progress**
 - [ ] Memory management
     - [ ] Custom allocator
     - [ ] Job system
