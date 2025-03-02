@@ -1,7 +1,10 @@
 #pragma once
 
+#include <GL/glew.h>
+
 #include "Koffieboon/Window.h"
 
+#include <gl/GL.h>
 #include <GLFW/glfw3.h>
 
 namespace Koffieboon
@@ -26,6 +29,7 @@ namespace Koffieboon
 
 		private:
 			virtual void Init(const WindowProps& props);
+			virtual void SetGLFWCallbacks();
 			virtual void Shutdown();
 
 		private:

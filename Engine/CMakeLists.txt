@@ -43,6 +43,7 @@ target_include_directories(Engine
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/include  # GLFW headers
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include # spdlog headers
+        ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glew/include # glew headers
 )
 
 # Link against GLFW.

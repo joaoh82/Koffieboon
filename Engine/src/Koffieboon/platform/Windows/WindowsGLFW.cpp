@@ -50,12 +50,60 @@ namespace Koffieboon
 			s_GLFWInitialized = true;
 		}
 
+#pragma region OpenGL
+
+		// Setup OpenGL Version
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		// Core profile = no backwards compatibility
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		// Forward compatibility = no deprecated functionality
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+		// Create window
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		if (!m_Window)
+		{
+			KB_CORE_ERROR("Could not create window!");
+			Shutdown();
+		}
+
+		// Get buffer size information
+		int bufferWidth, bufferHeight;
+		glfwGetFramebufferSize(m_Window, &bufferWidth, &bufferHeight);
+
+		// Set context for GLEW to use
 		glfwMakeContextCurrent(m_Window);
+
+		// Allow modern extension features
+		glewExperimental = GL_TRUE;
+
+		if (glewInit() != GLEW_OK)
+		{
+			KB_CORE_ERROR("Could not initialize GLEW!");
+			Shutdown();
+		}
+
+#pragma endregion
+
+		// Setup viewport size
+		glViewport(0, 0, bufferWidth, bufferHeight);
+
+		// Set GLFW window user pointer
+		//glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
-		// Set GLFW callbacks
+		// Set GLFW event callbacks
+		SetGLFWCallbacks();
+	}
+
+	/// <summary>
+	/// SetGLFWCallbacks is a function that sets the GLFW event callbacks.
+	/// </summary>
+	void WindowsGLFW::SetGLFWCallbacks()
+	{
+		// Set GLFW event callbacks
 
 		// Window resize callback
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
@@ -103,7 +151,7 @@ namespace Koffieboon
 				}
 				}
 			});
-		
+
 		// Mouse button callback
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 			{
@@ -148,6 +196,7 @@ namespace Koffieboon
 	void WindowsGLFW::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
+		glfwTerminate();
 	}
 
 	void WindowsGLFW::OnUpdate()

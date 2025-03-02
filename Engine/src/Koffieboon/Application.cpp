@@ -33,17 +33,6 @@ namespace Koffieboon
 
 	void Application::Run()
 	{
-		// Testing events
-		//WindowResizeEvent e(1280, 720);
-		//if (e.IsInCategory(EventCategoryApplication))
-		//{
-		//	KB_TRACE(e.ToString());
-		//}
-		//if (e.IsInCategory(EventCategoryInput))
-		//{
-		//	KB_TRACE(e.ToString());
-		//}
-
 		while (m_Running)
 		{
 			glClearColor(1, 0, 1, 1);
