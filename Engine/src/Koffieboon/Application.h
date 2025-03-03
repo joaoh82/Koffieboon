@@ -1,9 +1,11 @@
 #pragma once
 
-#include "Defines.h"
-#include "Window.h"
-#include "Events/Event.h"
+#include "Koffieboon/Defines.h"
+#include "Koffieboon/Window.h"
+#include "Koffieboon/Events/Event.h"
 #include "Koffieboon/Events/ApplicationEvent.h"
+
+#include "Koffieboon/Layers/LayerStack.h"
 
 namespace Koffieboon
 {
@@ -16,11 +18,15 @@ namespace Koffieboon
 		void Run();
 
 		void OnEvent(Event& e);
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
+		LayerStack m_LayerStack;
 	};
 
 	// To be defined in the client
