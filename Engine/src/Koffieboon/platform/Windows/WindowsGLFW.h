@@ -4,7 +4,6 @@
 
 #include "Koffieboon/Window.h"
 
-#include <gl/GL.h>
 #include <GLFW/glfw3.h>
 
 namespace Koffieboon

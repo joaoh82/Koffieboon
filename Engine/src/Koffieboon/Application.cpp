@@ -17,8 +17,9 @@ namespace Koffieboon
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
 		// Generate Vertex Array. It works because we have GLEW
-		unsigned int id;
-		glGenVertexArrays(1, &id);
+		// TODO: Debug code. Remove this.
+		// unsigned int id;
+		// glGenVertexArrays(1, &id);
 	}
 	Application::~Application()
 	{
