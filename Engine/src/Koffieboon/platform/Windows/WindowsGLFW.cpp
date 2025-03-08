@@ -52,13 +52,13 @@ namespace Koffieboon
 
 #pragma region OpenGL
 
-		// Setup OpenGL Version
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		// Core profile = no backwards compatibility
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-		// Forward compatibility = no deprecated functionality
-		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		//// Setup OpenGL Version
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		//// Core profile = no backwards compatibility
+		//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		//// Forward compatibility = no deprecated functionality
+		//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 		// Create window
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
@@ -75,19 +75,19 @@ namespace Koffieboon
 		// Set context for GLEW to use
 		glfwMakeContextCurrent(m_Window);
 
-		// Allow modern extension features
-		glewExperimental = GL_TRUE;
+		//// Allow modern extension features
+		//glewExperimental = GL_TRUE;
 
-		if (glewInit() != GLEW_OK)
-		{
-			KB_CORE_ERROR("Could not initialize GLEW!");
-			Shutdown();
-		}
+		//if (glewInit() != GLEW_OK)
+		//{
+		//	KB_CORE_ERROR("Could not initialize GLEW!");
+		//	Shutdown();
+		//}
 
 #pragma endregion
 
 		// Setup viewport size
-		glViewport(0, 0, bufferWidth, bufferHeight);
+		//glViewport(0, 0, bufferWidth, bufferHeight);
 
 		// Set GLFW window user pointer
 		//glfwMakeContextCurrent(m_Window);

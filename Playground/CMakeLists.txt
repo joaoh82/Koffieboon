@@ -6,9 +6,14 @@ set(PLAYGROUND_SOURCES
     # Add additional source files as needed.
 )
 
+# Ensure consistent runtime library usage
 if(MSVC)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
-    # Use the same settings as in Engine/CMakeLists.txt
+    # Use static runtime libraries
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    
+    # Remove any manual string replacements for runtime flags
+    # string(REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+    # string(REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
 endif()
 
 add_executable(Playground ${PLAYGROUND_SOURCES})
@@ -22,21 +27,16 @@ target_include_directories(Playground
         ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/vendor/spdlog/include
 )
 
-# Link the executable with the Engine DLL.
+# Link the executable with the Engine Static Library.
 target_link_libraries(Playground PRIVATE Engine)
 
 # Add compile definition for the Playground project.
 target_compile_definitions(Playground 
     PRIVATE 
         KB_PLATFORM_WINDOWS 
+        _CRT_SECURE_NO_WARNINGS
+        SPDLOG_COMPILED_LIB
         $<$<CONFIG:Release>:KB_RELEASE>
 )
 
 target_compile_options(Playground PRIVATE "$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
-
-# Add a post-build step to copy Engine.dll to the output directory
-add_custom_command(TARGET Playground POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-        "${CMAKE_BINARY_DIR}/Engine/$<CONFIG>/Engine.dll"
-        $<TARGET_FILE_DIR:Playground>
-)

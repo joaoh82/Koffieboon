@@ -1,8 +1,6 @@
 #include "kbpch.h"
 #include "Application.h"
 
-#include <GL/Glew.h>
-#include <gl/GL.h>
 #include <GLFW/glfw3.h>
 
 
