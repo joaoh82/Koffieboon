@@ -29,13 +29,15 @@ target_include_directories(Playground
 
 # Link the executable with the Engine Static Library.
 target_link_libraries(Playground PRIVATE Engine)
+# Adding this to prevent warnings about conflicting libraries
+target_link_options(Playground PRIVATE "/NODEFAULTLIB:LIBCMT")
+
 
 # Add compile definition for the Playground project.
 target_compile_definitions(Playground 
     PRIVATE 
         KB_PLATFORM_WINDOWS 
         _CRT_SECURE_NO_WARNINGS
-        SPDLOG_COMPILED_LIB
         $<$<CONFIG:Release>:KB_RELEASE>
 )
 

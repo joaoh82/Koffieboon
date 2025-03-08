@@ -28,6 +28,7 @@ endif()
 # Create the static library (DLL)
 add_library(Engine STATIC ${ENGINE_SOURCES} ${ENGINE_HEADERS})
 
+# Set the PCH header and source
 set(PCH_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/src/kbpch.h)
 set(PCH_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/src/kbpch.cpp)
 target_precompile_headers(Engine PRIVATE ${PCH_HEADER})
@@ -55,7 +56,6 @@ target_compile_definitions(Engine
     PRIVATE 
         KB_PLATFORM_WINDOWS 
         _CRT_SECURE_NO_WARNINGS
-        SPDLOG_COMPILED_LIB
         $<$<CONFIG:Release>:KB_RELEASE>
 )
 
