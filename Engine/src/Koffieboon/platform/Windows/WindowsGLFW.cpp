@@ -6,6 +6,9 @@
 #include "Koffieboon/Events/KeyEvent.h"
 #include "Koffieboon/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
+
 namespace Koffieboon
 {
 	static bool s_GLFWInitialized = false;
@@ -53,8 +56,8 @@ namespace Koffieboon
 #pragma region OpenGL
 
 		//// Setup OpenGL Version
-		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 		//// Core profile = no backwards compatibility
 		//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 		//// Forward compatibility = no deprecated functionality
@@ -75,14 +78,9 @@ namespace Koffieboon
 		// Set context for GLEW to use
 		glfwMakeContextCurrent(m_Window);
 
-		//// Allow modern extension features
-		//glewExperimental = GL_TRUE;
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		KASSERT_MSG(status, "Failed to initialize Glad!");
 
-		//if (glewInit() != GLEW_OK)
-		//{
-		//	KB_CORE_ERROR("Could not initialize GLEW!");
-		//	Shutdown();
-		//}
 
 #pragma endregion
 

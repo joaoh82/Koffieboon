@@ -16,6 +16,11 @@ file(GLOB_RECURSE ENGINE_HEADERS
     "src/*.hpp"
 )
 
+# Add files from Glad located in vendor/glad
+file(GLOB ENGINE_GLAD_SOURCES
+    "vendor/glad/src/glad.c"
+)
+
 # Set static runtime libraries at the top level
 if(MSVC)
     # Use static runtime libraries
@@ -25,8 +30,19 @@ if(MSVC)
     # add_link_options(/NODEFAULTLIB:LIBCMT$<$<CONFIG:Debug>:D>)
 endif()
 
-# Create the static library (DLL)
-add_library(Engine STATIC ${ENGINE_SOURCES} ${ENGINE_HEADERS})
+# Create the static library - include Glad sources
+add_library(Engine STATIC 
+    ${ENGINE_SOURCES} 
+    ${ENGINE_HEADERS}
+    ${ENGINE_GLAD_SOURCES}
+)
+
+# Disable precompiled headers for glad.c
+set_source_files_properties(
+    ${ENGINE_GLAD_SOURCES}
+    PROPERTIES 
+    SKIP_PRECOMPILE_HEADERS ON
+)
 
 # Set the PCH header and source
 set(PCH_HEADER ${CMAKE_CURRENT_SOURCE_DIR}/src/kbpch.h)
@@ -42,6 +58,7 @@ target_include_directories(Engine
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/include  # GLFW headers
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include # spdlog headers
+        ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/include # glad headers
 )
 
 # Link against GLFW
@@ -57,6 +74,7 @@ target_compile_definitions(Engine
         KB_PLATFORM_WINDOWS 
         _CRT_SECURE_NO_WARNINGS
         $<$<CONFIG:Release>:KB_RELEASE>
+        GLFW_INCLUDE_NONE
 )
 
 target_compile_options(Engine PRIVATE "$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
