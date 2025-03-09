@@ -5,6 +5,13 @@
 # Uncomment the next line if Engine/vendor/glfw has a CMakeLists.txt
 # add_subdirectory(vendor/glfw)
 
+# Add files from ImGui located in vendor/imgui
+file(GLOB ENGINE_IMGUI_SOURCES
+    "vendor/imgui/*.cpp"
+    "vendor/imgui/*.h"
+    "vendor/imgui/*.hpp"
+)
+
 # Find all source and header files recursively
 file(GLOB_RECURSE ENGINE_SOURCES 
     "src/*.cpp"
@@ -21,12 +28,7 @@ file(GLOB ENGINE_GLAD_SOURCES
     "vendor/glad/src/glad.c"
 )
 
-# Add files from ImGui located in vendor/imgui
-file(GLOB ENGINE_IMGUI_SOURCES
-    "vendor/imgui/*.cpp"
-    "vendor/imgui/*.h"
-    "vendor/imgui/*.hpp"
-)
+
 
 # Set static runtime libraries at the top level
 if(MSVC)
@@ -74,6 +76,7 @@ target_include_directories(Engine
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glfw/include  # GLFW headers
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include # spdlog headers
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/include # glad headers
+        ${CMAKE_CURRENT_SOURCE_DIR}/vendor/imgui # imgui headers
 )
 
 # Link against GLFW

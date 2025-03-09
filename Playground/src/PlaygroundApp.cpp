@@ -29,8 +29,9 @@ public:
 	Playground()
 	{
 		PushLayer(new ExampleLayer());
-		//PlatformStartup(1280, 720, "Playground", WindowMode_Windowed, nullptr);
-		KASSERT_MSG(1, "This is a test");
+		PushOverlay(new Koffieboon::ImGuiLayer());
+
+		//KASSERT_MSG(1, "This is a test");
 		//KASSERT_MSG(0, "This is a failed test");
 	}	
 	~Playground()
