@@ -21,6 +21,13 @@ file(GLOB ENGINE_GLAD_SOURCES
     "vendor/glad/src/glad.c"
 )
 
+# Add files from ImGui located in vendor/imgui
+file(GLOB ENGINE_IMGUI_SOURCES
+    "vendor/imgui/*.cpp"
+    "vendor/imgui/*.h"
+    "vendor/imgui/*.hpp"
+)
+
 # Set static runtime libraries at the top level
 if(MSVC)
     # Use static runtime libraries
@@ -35,11 +42,19 @@ add_library(Engine STATIC
     ${ENGINE_SOURCES} 
     ${ENGINE_HEADERS}
     ${ENGINE_GLAD_SOURCES}
+    ${ENGINE_IMGUI_SOURCES}
 )
 
-# Disable precompiled headers for glad.c
+# Disable precompiled headers for glad sources
 set_source_files_properties(
     ${ENGINE_GLAD_SOURCES}
+    PROPERTIES 
+    SKIP_PRECOMPILE_HEADERS ON
+)
+
+# Disable precompiled headers for imgui sources
+set_source_files_properties(
+    ${ENGINE_IMGUI_SOURCES}
     PROPERTIES 
     SKIP_PRECOMPILE_HEADERS ON
 )
