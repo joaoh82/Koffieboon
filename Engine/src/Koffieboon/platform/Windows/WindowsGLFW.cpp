@@ -75,7 +75,7 @@ namespace Koffieboon
 		int bufferWidth, bufferHeight;
 		glfwGetFramebufferSize(m_Window, &bufferWidth, &bufferHeight);
 
-		// Set context for GLEW to use
+		 //Set GLFW window user pointer
 		glfwMakeContextCurrent(m_Window);
 
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
@@ -85,10 +85,8 @@ namespace Koffieboon
 #pragma endregion
 
 		// Setup viewport size
-		//glViewport(0, 0, bufferWidth, bufferHeight);
+		glViewport(0, 0, bufferWidth, bufferHeight);
 
-		// Set GLFW window user pointer
-		//glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
