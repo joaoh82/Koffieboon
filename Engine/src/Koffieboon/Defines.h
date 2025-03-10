@@ -25,6 +25,8 @@ typedef int b32;
 /// </summary>
 #define BIT(x) (1 << x)
 
+#define KB_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
 // Properly define static assertions
 #define STATIC_ASSERT(expression, message) static_assert(expression, message)
 
