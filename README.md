@@ -29,7 +29,7 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
 - [ ] Low-level utilities (dynamic arrays, string handling, math utilities, etc.)
 - [ ] Platform Layer 
     - [x] Windowing
-    - [ ] Input
+    - [x] Input
     - [ ] Console Interaction
 - [x] Logging
 - [ ] File I/O

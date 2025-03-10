@@ -6,6 +6,8 @@
 #include "Koffieboon/Events/KeyEvent.h"
 #include "Koffieboon/Events/MouseEvent.h"
 
+#include <map>
+
 namespace Koffieboon
 {
 	class KOFFIEBOON_API ImGuiLayer : public Layer
@@ -29,10 +31,13 @@ namespace Koffieboon
 		bool OnKeyTypedEvent(KeyTypedEvent& e);
 		bool OnWindowResizeEvent(WindowResizeEvent& e);
 
-		
-
 	private:
 		float m_Time = 0.0f;
+
+		/// <summary>
+		/// Map to store the key states
+		/// </summary>
+		std::map<int, int> m_KeyMap;
 		
 	};
 } // namespace Koffieboon

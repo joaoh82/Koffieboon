@@ -117,10 +117,12 @@ namespace Koffieboon
 
         io.AddKeyEvent(key, true);
 
-        io.KeyCtrl = io.KeysData[ImGuiKey_LeftCtrl].Down || io.KeysData[ImGuiKey_RightCtrl].Down;
-        io.KeyShift = io.KeysData[ImGuiKey_LeftShift].Down || io.KeysData[ImGuiKey_RightShift].Down;
-        io.KeyAlt = io.KeysData[ImGuiKey_LeftAlt].Down || io.KeysData[ImGuiKey_RightAlt].Down;
-        io.KeySuper = io.KeysData[ImGuiKey_LeftSuper].Down || io.KeysData[ImGuiKey_RightSuper].Down;
+		// Update key modifiers
+        m_KeyMap[key] = true;
+        io.AddKeyEvent(ImGuiMod_Ctrl, m_KeyMap[ImGuiKey_LeftCtrl] || m_KeyMap[ImGuiKey_RightCtrl]);
+        io.AddKeyEvent(ImGuiMod_Shift, m_KeyMap[ImGuiKey_LeftShift] || m_KeyMap[ImGuiKey_RightShift]);
+        io.AddKeyEvent(ImGuiMod_Alt, m_KeyMap[ImGuiKey_LeftAlt] || m_KeyMap[ImGuiKey_RightAlt]);
+        io.AddKeyEvent(ImGuiMod_Super, m_KeyMap[ImGuiKey_LeftSuper] || m_KeyMap[ImGuiKey_RightSuper]);
 
         return false;
     }
@@ -132,6 +134,9 @@ namespace Koffieboon
         ImGuiKey key = ImGui_ImplGlfw_KeyToImGuiKey(e.GetKeyCode(), 0);
 
         io.AddKeyEvent(key, false);
+
+		// Update key modifiers
+        m_KeyMap[key] = false;
 
         return false;
     }
@@ -155,6 +160,15 @@ namespace Koffieboon
 
 		return false;
 	}
+
+    static void ImGui_ImplGlfw_UpdateKeyModifiers(GLFWwindow* window)
+    {
+        ImGuiIO& io = ImGui::GetIO();
+        io.AddKeyEvent(ImGuiMod_Ctrl, (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_CONTROL) == GLFW_PRESS));
+        io.AddKeyEvent(ImGuiMod_Shift, (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_SHIFT) == GLFW_PRESS));
+        io.AddKeyEvent(ImGuiMod_Alt, (glfwGetKey(window, GLFW_KEY_LEFT_ALT) == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_ALT) == GLFW_PRESS));
+        io.AddKeyEvent(ImGuiMod_Super, (glfwGetKey(window, GLFW_KEY_LEFT_SUPER) == GLFW_PRESS) || (glfwGetKey(window, GLFW_KEY_RIGHT_SUPER) == GLFW_PRESS));
+    }
 
     /// @brief Converts a GLFW key code to an ImGui key code
     /// @param keycode 
