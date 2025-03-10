@@ -3,6 +3,7 @@
 # List your source files for the executable.
 set(PLAYGROUND_SOURCES
     src/PlaygroundApp.cpp
+    imgui.ini
     # Add additional source files as needed.
 )
 

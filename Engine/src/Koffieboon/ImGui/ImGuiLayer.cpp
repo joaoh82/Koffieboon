@@ -80,7 +80,7 @@ namespace Koffieboon
 	bool ImGuiLayer::OnMouseButtonPressedEvent(MouseButtonPressedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseDown[e.GetMouseButton()] = true;
+		io.AddMouseButtonEvent(e.GetMouseButton(), true);
 
 		return false;
 	}
@@ -88,7 +88,7 @@ namespace Koffieboon
 	bool ImGuiLayer::OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseDown[e.GetMouseButton()] = false;
+		io.AddMouseButtonEvent(e.GetMouseButton(), false);
 
 		return false;
 	}
@@ -96,7 +96,7 @@ namespace Koffieboon
 	bool ImGuiLayer::OnMouseMovedEvent(MouseMovedEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MousePos = ImVec2(e.GetX(), e.GetY());
+		io.AddMousePosEvent(e.GetX(), e.GetY());
 
 		return false;
 	}
@@ -104,8 +104,7 @@ namespace Koffieboon
 	bool ImGuiLayer::OnMouseScrolledEvent(MouseScrolledEvent& e)
 	{
 		ImGuiIO& io = ImGui::GetIO();
-		io.MouseWheelH += e.GetXOffset();
-		io.MouseWheel += e.GetYOffset();
+		io.AddMouseWheelEvent(e.GetXOffset(), e.GetYOffset());
 
 		return false;
 	}
@@ -157,6 +156,10 @@ namespace Koffieboon
 		return false;
 	}
 
+    /// @brief Converts a GLFW key code to an ImGui key code
+    /// @param keycode 
+    /// @param scancode (NOT USED)
+    /// @return 
     ImGuiKey ImGui_ImplGlfw_KeyToImGuiKey(int keycode, int scancode)
     {
         IM_UNUSED(scancode);
