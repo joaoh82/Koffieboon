@@ -11,12 +11,21 @@ public:
 
 	void OnUpdate() override
 	{
-		KB_INFO("ExampleLayer::Update");
+		// Check if the tab key is pressed
+		if (Koffieboon::Input::IsKeyPressed(KB_KEY_TAB))
+			KB_TRACE("Tab key is pressed!");
 	}
 
 	void OnEvent(Koffieboon::Event& event) override
 	{
-		KB_TRACE("{0}",event.ToString());
+		if (event.GetEventType() == Koffieboon::EventType::KeyPressed)
+		{
+			// Check if the tab key is pressed
+			Koffieboon::KeyPressedEvent& e = (Koffieboon::KeyPressedEvent&)event;
+			if (e.GetKeyCode() == KB_KEY_TAB)
+				KB_TRACE("Tab key is pressed (event)!");
+			KB_TRACE("{0}", (char)e.GetKeyCode());
+		}
 	}
 };
 

@@ -40,6 +40,12 @@ namespace Koffieboon
 			virtual bool IsVSync() const = 0;
 
 			/// <summary>
+			/// GetNativeWindow is a function that returns a pointer to the native window.
+			/// </summary>
+			/// <returns></returns>
+			virtual void* GetNativeWindow() const = 0;
+
+			/// <summary>
 			/// Create is a static function that creates a new window. It is platform specific.
 			/// </summary>
 			/// <param name="props">The properties of the window.</param>

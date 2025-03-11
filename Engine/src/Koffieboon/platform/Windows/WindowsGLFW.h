@@ -24,6 +24,12 @@ namespace Koffieboon
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
 
+		/// <summary>
+		/// GetNativeWindow is a function that returns a pointer to the native window.
+		/// </summary>
+		/// <returns></returns>
+		inline virtual void* GetNativeWindow() const override { return m_Window; }
+
 		private:
 			virtual void Init(const WindowProps& props);
 			virtual void SetGLFWCallbacks();

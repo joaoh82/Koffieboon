@@ -3,8 +3,7 @@
 
 #include <glad/glad.h>
 
-//#include <GLFW/glfw3.h>
-
+#include "Input.h"
 
 namespace Koffieboon
 {
@@ -74,6 +73,9 @@ namespace Koffieboon
 			// Update layers
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			//auto [x, y] = Input::GetMousePosition();
+			//KB_CORE_TRACE("Mouse position: {0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}
