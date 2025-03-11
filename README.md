@@ -27,9 +27,14 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
     - [x] Application Events
     - [x] Input Events
 - [ ] Low-level utilities (dynamic arrays, string handling, math utilities, etc.)
+    - [x] Custom Types
+    - [ ] Math: Use glm
+    - [ ] Standard Library Utilities: Use https://github.com/electronicarts/EASTL (Maybe)
 - [ ] Platform Layer 
     - [x] Windowing
     - [x] Input
+    - [x] ImGui
+    - [x] Engine Keycodes and Mouse codes
     - [ ] Console Interaction
 - [x] Logging
 - [ ] File I/O
