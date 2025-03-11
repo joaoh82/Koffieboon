@@ -37,13 +37,13 @@ namespace Koffieboon
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
+		//layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
-		overlay->OnAttach();
+		//overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)

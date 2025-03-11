@@ -25,6 +25,7 @@ namespace Koffieboon
 		// This pushes the layer to the layer stack at the position of m_LayerInsert and increments m_LayerInsertIndex
 		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);
 		m_LayerInsertIndex++;
+		layer->OnAttach();
 	}
 
 	/// <summary>
@@ -36,6 +37,7 @@ namespace Koffieboon
 	{
 		// This pushes the overlay to the layer stack at the end of the vector
 		m_Layers.emplace_back(overlay);
+		overlay->OnAttach();
 	}
 
 	void LayerStack::PopLayer(Layer* layer)
@@ -48,6 +50,7 @@ namespace Koffieboon
 			m_Layers.erase(it);
 			// If the layer is removed before the m_LayerInsert, decrement m_LayerInsertIndex
 			m_LayerInsertIndex--;
+			layer->OnDetach();
 		}
 	}
 
