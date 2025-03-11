@@ -28,6 +28,12 @@ file(GLOB ENGINE_GLAD_SOURCES
     "vendor/glad/src/glad.c"
 )
 
+# Add files from GLM located in vendor/glm
+file(GLOB ENGINE_GLM_SOURCES
+    "vendor/glm/*.inl"
+    "vendor/glm/*.hpp"
+)
+
 
 
 # Set static runtime libraries at the top level
@@ -45,6 +51,7 @@ add_library(Engine STATIC
     ${ENGINE_HEADERS}
     ${ENGINE_GLAD_SOURCES}
     ${ENGINE_IMGUI_SOURCES}
+    ${ENGINE_GLM_SOURCES}
 )
 
 # Disable precompiled headers for glad sources
@@ -77,6 +84,7 @@ target_include_directories(Engine
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include # spdlog headers
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/include # glad headers
         ${CMAKE_CURRENT_SOURCE_DIR}/vendor/imgui # imgui headers
+        ${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm # glm headers
 )
 
 # Link against GLFW

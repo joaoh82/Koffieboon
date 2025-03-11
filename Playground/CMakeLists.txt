@@ -26,6 +26,7 @@ target_include_directories(Playground
     PRIVATE 
         ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/include
         ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/vendor/spdlog/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/../Engine/vendor/glm # glm headers
 )
 
 # Link the executable with the Engine Static Library.
