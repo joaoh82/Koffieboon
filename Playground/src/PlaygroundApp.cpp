@@ -1,5 +1,7 @@
 #include <Koffieboon.h>
 
+#include "imgui/imgui.h"
+
 #include <glm/vec3.hpp> // glm::vec3
 #include <glm/vec4.hpp> // glm::vec4
 #include <glm/mat4x4.hpp> // glm::mat4
@@ -33,6 +35,13 @@ public:
 			KB_TRACE("Tab key is pressed!");
 	}
 
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
+	}
+
 	void OnEvent(Koffieboon::Event& event) override
 	{
 		if (event.GetEventType() == Koffieboon::EventType::KeyPressed)
@@ -55,7 +64,6 @@ public:
 	Playground()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Koffieboon::ImGuiLayer());
 
 		//KASSERT_MSG(1, "This is a test");
 		//KASSERT_MSG(0, "This is a failed test");

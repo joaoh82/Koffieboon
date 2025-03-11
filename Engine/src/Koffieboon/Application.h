@@ -7,6 +7,8 @@
 
 #include "Koffieboon/Layers/LayerStack.h"
 
+#include "Koffieboon/ImGui/ImGuiLayer.h"
+
 namespace Koffieboon
 {
 	class KOFFIEBOON_API Application
@@ -29,6 +31,10 @@ namespace Koffieboon
 		bool OnWindowClose(WindowCloseEvent& e);
 		
 		std::unique_ptr<Window> m_Window;
+		/// <summary>
+		/// ImGuiLayer pointer to the ImGuiLayer (Raw pointer)
+		/// </summary>
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

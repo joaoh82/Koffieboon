@@ -5,8 +5,6 @@ namespace Koffieboon
 {
 	LayerStack::LayerStack()
 	{
-		// This initializes the m_LayerInsert iterator to the beginning of the vector
-		m_LayerInsert = m_Layers.begin();
 	}
 
 	LayerStack::~LayerStack()
@@ -24,8 +22,9 @@ namespace Koffieboon
 	/// <param name="layer"></param>
 	void LayerStack::PushLayer(Layer* layer)
 	{
-		// This pushes the layer to the layer stack at the position of m_LayerInsert and increments m_LayerInsert
-		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
+		// This pushes the layer to the layer stack at the position of m_LayerInsert and increments m_LayerInsertIndex
+		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);
+		m_LayerInsertIndex++;
 	}
 
 	/// <summary>
@@ -47,8 +46,8 @@ namespace Koffieboon
 		{
 			// Not the end of the vector
 			m_Layers.erase(it);
-			// If the layer is removed before the m_LayerInsert, decrement m_LayerInsert
-			m_LayerInsert--;
+			// If the layer is removed before the m_LayerInsert, decrement m_LayerInsertIndex
+			m_LayerInsertIndex--;
 		}
 	}
 

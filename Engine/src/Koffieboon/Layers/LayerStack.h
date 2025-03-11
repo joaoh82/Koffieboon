@@ -23,6 +23,9 @@ namespace Koffieboon
 
 	private:
 		std::vector<Layer*> m_Layers;
-		std::vector<Layer*>::iterator m_LayerInsert;
+		/// <summary>
+		/// Index to insert the layer in the layer stack
+		/// </summary>
+		unsigned int m_LayerInsertIndex = 0;
 	};
 } // namespace Koffieboon

@@ -21,6 +21,10 @@ namespace Koffieboon
 
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
+		m_ImGuiLayer = new ImGuiLayer();
+		// Add ImGuiLayer to the layer stack
+		PushOverlay(m_ImGuiLayer);
+
 		// Generate Vertex Array. It works because we have GLEW
 		// TODO: Debug code. Remove this.
 		// unsigned int id;
@@ -76,6 +80,12 @@ namespace Koffieboon
 
 			//auto [x, y] = Input::GetMousePosition();
 			//KB_CORE_TRACE("Mouse position: {0}, {1}", x, y);
+
+			// Render ImGui
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

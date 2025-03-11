@@ -122,8 +122,6 @@
     <ClInclude Include="src\Koffieboon\Layers\Layer.h" />
     <ClInclude Include="src\Koffieboon\Layers\LayerStack.h" />
     <ClInclude Include="src\Koffieboon\MouseButtonCodes.h" />
-    <ClInclude Include="src\Koffieboon\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
-    <ClInclude Include="src\Koffieboon\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="src\Koffieboon\Platform\Windows\WindowsGLFW.h" />
     <ClInclude Include="src\Koffieboon\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Koffieboon\Window.h" />
@@ -431,12 +429,10 @@
     <ClCompile Include="src\Koffieboon\Application.cpp" />
     <ClCompile Include="src\Koffieboon\Core\Asserts.cpp" />
     <ClCompile Include="src\Koffieboon\Core\Logger.cpp" />
+    <ClCompile Include="src\Koffieboon\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Koffieboon\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Koffieboon\Layers\Layer.cpp" />
     <ClCompile Include="src\Koffieboon\Layers\LayerStack.cpp" />
-    <ClCompile Include="src\Koffieboon\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="src\Koffieboon\Platform\Windows\WindowsGLFW.cpp" />
     <ClCompile Include="src\Koffieboon\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="vendor\glad\src\glad.c">

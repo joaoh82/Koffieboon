@@ -4,6 +4,8 @@
 
 This engine is made from the ground up using C++ and supporting OpenGL.
 
+![Engine Screenshot](images/Screenshot_01.png)
+
 # What is the plan?
 
 Koffieboon is a 3D engine from the start, with most of it built from scratch taking inspiration from different learning sources. My plan is to have to code very well commented and whatever other documentation I find relevant to make the understanding of the code easy and be used as a learning source also.
@@ -33,7 +35,7 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
 - [ ] Platform Layer 
     - [x] Windowing
     - [x] Input
-    - [x] ImGui
+    - [x] ImGui (With Docking Branch)
     - [x] Engine Keycodes and Mouse codes
     - [ ] Console Interaction
 - [x] Logging
