@@ -18,6 +18,10 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
 
 ![Engine Architecture](images/Architecture.png)
 
+# Renderer API Design
+
+![Renderer API Design](images/RendererAPIDesign.png)
+
 # Roadmap Features list (Not an exhaustive list)
 
 - [x] Build system
