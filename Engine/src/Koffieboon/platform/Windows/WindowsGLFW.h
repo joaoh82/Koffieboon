@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Koffieboon/Window.h"
+#include "Koffieboon/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -37,6 +38,8 @@ namespace Koffieboon
 
 		private:
 			GLFWwindow* m_Window;
+			GraphicsContext* m_Context;
+			
 			struct WindowData
 			{
 				std::string Title;

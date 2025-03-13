@@ -83,8 +83,8 @@ namespace Koffieboon
 	void Application::Run()
 	{
 		// build and compile our shader program
-	// ------------------------------------
-	// vertex shader
+		// ------------------------------------
+		// vertex shader
 		unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
 		glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
 		glCompileShader(vertexShader);
@@ -125,7 +125,7 @@ namespace Koffieboon
 		// set up vertex data (and buffer(s)) and configure vertex attributes
 		// ------------------------------------------------------------------
 		float vertices[] = {
-			 0.5f,  0.5f, 0.0f,  // top right
+			 0.3f,  0.5f, 0.0f,  // top right
 			 0.5f, -0.5f, 0.0f,  // bottom right
 			-0.5f, -0.5f, 0.0f,  // bottom left
 			-0.5f,  0.5f, 0.0f   // top left 
@@ -160,9 +160,8 @@ namespace Koffieboon
 		// VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
 		glBindVertexArray(0);
 
-
 		// uncomment this call to draw in wireframe polygons.
-		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		while (m_Running)
 		{

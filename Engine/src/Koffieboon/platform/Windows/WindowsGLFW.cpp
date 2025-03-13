@@ -6,7 +6,7 @@
 #include "Koffieboon/Events/KeyEvent.h"
 #include "Koffieboon/Events/MouseEvent.h"
 
-#include <glad/glad.h>
+#include "Koffieboon/Platform/OpenGL/OpenGLContext.h"
 
 
 namespace Koffieboon
@@ -55,13 +55,13 @@ namespace Koffieboon
 
 #pragma region OpenGL
 
-		// Setup OpenGL Version
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		// Core profile = no backwards compatibility
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-		// Forward compatibility = no deprecated functionality
-		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		//// Setup OpenGL Version
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		//// Core profile = no backwards compatibility
+		//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		//// Forward compatibility = no deprecated functionality
+		//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 		// Create window
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
@@ -71,15 +71,13 @@ namespace Koffieboon
 			Shutdown();
 		}
 
+		// Create OpenGL context
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
 		// Get buffer size information
 		int bufferWidth, bufferHeight;
 		glfwGetFramebufferSize(m_Window, &bufferWidth, &bufferHeight);
-
-		 //Set GLFW window user pointer
-		glfwMakeContextCurrent(m_Window);
-
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		KASSERT_MSG(status, "Failed to initialize Glad!");
 
 
 #pragma endregion
@@ -112,7 +110,7 @@ namespace Koffieboon
 				data.EventCallback(event);
 
 				// Set viewport size, in case the window is resized
-				glViewport(0, 0, width, height);
+				//m_Context->SetViewport(0, 0, width, height);
 			});
 
 		// Window close callback
@@ -219,7 +217,7 @@ namespace Koffieboon
 
 		// Render stuff
 
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsGLFW::SetVSync(bool enabled)
@@ -236,6 +234,5 @@ namespace Koffieboon
 	{
 		return m_Data.VSync;
 	}
-
 
 } // namespace Koffieboon
