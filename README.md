@@ -56,10 +56,14 @@ Koffieboon is a 3D engine from the start, with most of it built from scratch tak
     - [ ] Job system with dependency graph
 - [ ] Scene Graph
     - [ ] Entity Component System
+        - [ ] https://github.com/skypjack/entt
     - [ ] Scene Hierarchy
     - [ ] Scene Management
 - [ ] Scripting
     - [ ] Lua
+        - [ ] https://github.com/ThePhD/sol2
+        - [ ] https://kunitoki.github.io/LuaBridge3/Manual.html
+        - [ ] https://edw.is/using-lua-with-cpp/
 - [ ] Physics System
     - [ ] Collision Detection
     - [ ] Rigid Body Dynamics

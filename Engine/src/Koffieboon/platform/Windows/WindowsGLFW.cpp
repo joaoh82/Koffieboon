@@ -55,13 +55,13 @@ namespace Koffieboon
 
 #pragma region OpenGL
 
-		//// Setup OpenGL Version
-		//glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-		//glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-		//// Core profile = no backwards compatibility
-		//glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-		//// Forward compatibility = no deprecated functionality
-		//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+		// Setup OpenGL Version
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		// Core profile = no backwards compatibility
+		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		// Forward compatibility = no deprecated functionality
+		glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 		// Create window
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
@@ -84,8 +84,8 @@ namespace Koffieboon
 
 #pragma endregion
 
-		// Setup viewport size
-		glViewport(0, 0, bufferWidth, bufferHeight);
+		// Setup viewport size, Note: This is done in the WindowResizeEvent callback
+		//glViewport(0, 0, bufferWidth, bufferHeight);
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
@@ -110,6 +110,9 @@ namespace Koffieboon
 
 				WindowResizeEvent event(width, height);
 				data.EventCallback(event);
+
+				// Set viewport size, in case the window is resized
+				glViewport(0, 0, width, height);
 			});
 
 		// Window close callback
@@ -204,9 +207,18 @@ namespace Koffieboon
 		glfwTerminate();
 	}
 
+	/// <summary>
+	/// OnUpdate is a function that updates the window. 
+	/// It is called every frame and can be also called the render loop.
+	/// </summary>
 	void WindowsGLFW::OnUpdate()
 	{
+		// The glfwPollEvents function checks if any events are triggered (like keyboard input or mouse movement events), 
+		// updates the window state, and calls the corresponding functions (which we can register via callback methods). 
 		glfwPollEvents();
+
+		// Render stuff
+
 		glfwSwapBuffers(m_Window);
 	}
 
