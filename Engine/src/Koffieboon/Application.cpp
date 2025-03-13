@@ -24,54 +24,6 @@ namespace Koffieboon
 		"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
 		"}\n\0";
 
-    void CompileShader(unsigned int* shader, const char* vertexShaderSource, const char* fragmentShaderSource)
-    {
-        // vertex shader
-        unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-        glCompileShader(vertexShader);
-
-        // check for shader compile errors
-        int success;
-        char infoLog[512];
-        glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-        if (!success)
-        {
-            glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-            std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-        }
-
-        // fragment shader
-        unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-        glCompileShader(fragmentShader);
-
-        // check for shader compile errors
-        glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-        if (!success)
-        {
-            glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-            std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-        }
-
-        // link shaders
-        *shader = glCreateProgram();
-        glAttachShader(*shader, vertexShader);
-        glAttachShader(*shader, fragmentShader);
-        glLinkProgram(*shader);
-
-        // check for linking errors
-        glGetProgramiv(*shader, GL_LINK_STATUS, &success);
-        if (!success) {
-            glGetProgramInfoLog(*shader, 512, NULL, infoLog);
-            std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-        }
-
-		// delete the shaders as they're linked into our program now and no longer necessary
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
-    }
-
 	Application::Application()
 	{
 		KASSERT_MSG(!s_Instance, "Application already exists!");
@@ -85,11 +37,6 @@ namespace Koffieboon
 		m_ImGuiLayer = new ImGuiLayer();
 		// Add ImGuiLayer to the layer stack
 		PushOverlay(m_ImGuiLayer);
-
-
-		// build and compile our shader program
-		// ------------------------------------
-		CompileShader(&m_shaderProgram, vertexShaderSource, fragmentShaderSource);
 
 
 		// set up vertex data (and buffer(s)) and configure vertex attributes
@@ -134,7 +81,11 @@ namespace Koffieboon
 		// uncomment this call to draw in wireframe polygons.
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
+		// Reset the shader
+		m_Shader.reset(new Shader(vertexShaderSource, fragmentShaderSource));
+
 	}
+
 	Application::~Application()
 	{
 	}
@@ -142,13 +93,11 @@ namespace Koffieboon
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		//layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		m_LayerStack.PushOverlay(overlay);
-		//overlay->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
@@ -172,8 +121,6 @@ namespace Koffieboon
 		return true;
 	}
 
-	
-
 	void Application::Run()
 	{
 
@@ -182,9 +129,9 @@ namespace Koffieboon
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			// draw our first triangle
-			glUseProgram(m_shaderProgram);
-			// seeing as we only have a single m_VertexArray there's no need to bind it every time, but we'll do so to keep things a bit more organized
+			m_Shader->Bind();
+			// seeing as we only have a single m_VertexArray there's no need to bind it every time, 
+			// but we'll do so to keep things a bit more organized
 			glBindVertexArray(m_VertexArray); 
 			//glDrawArrays(GL_TRIANGLES, 0, 6);
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

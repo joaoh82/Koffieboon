@@ -9,6 +9,8 @@
 
 #include "Koffieboon/ImGui/ImGuiLayer.h"
 
+#include "Koffieboon/Renderer/Shader.h"
+
 namespace Koffieboon
 {
 	class KOFFIEBOON_API Application
@@ -39,6 +41,8 @@ namespace Koffieboon
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer, m_shaderProgram;
+
+		std::unique_ptr<Shader> m_Shader;
 
 	private:
 		static Application* s_Instance;
