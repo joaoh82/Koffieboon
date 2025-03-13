@@ -18,6 +18,11 @@ namespace Koffieboon
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		KASSERT_MSG(status, "Failed to initialize Glad!");
+
+		KB_CORE_INFO("OpenGL Info:");
+	/*	KB_CORE_INFO("  Vendor: {0}", glGetString(GL_VENDOR));
+		KB_CORE_INFO("  Renderer: {0}", glGetString(GL_RENDERER));
+		KB_CORE_INFO("  Version: {0}", glGetString(GL_VERSION));*/
 	}
 
 	void OpenGLContext::SwapBuffers()
