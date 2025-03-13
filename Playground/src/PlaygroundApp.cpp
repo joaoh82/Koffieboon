@@ -2,6 +2,8 @@
 
 #include "imgui/imgui.h"
 
+// TODO: Remove this
+
 #include <glm/vec3.hpp> // glm::vec3
 #include <glm/vec4.hpp> // glm::vec4
 #include <glm/mat4x4.hpp> // glm::mat4
@@ -18,6 +20,8 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 	glm::mat4 Model = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));
 	return Projection * View * Model;
 }
+
+// Remove until here
 
 class ExampleLayer : public Koffieboon::Layer
 {

@@ -42,7 +42,7 @@ namespace Koffieboon
 		static Application* s_Instance;
 	};
 
-	// To be defined in the client
+	// To be defined in the client. Client must implement this function.
 	Application* CreateApplication();
 
 }
