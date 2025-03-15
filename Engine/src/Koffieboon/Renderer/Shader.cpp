@@ -7,6 +7,9 @@ namespace Koffieboon
 {
 	Shader::Shader(const std::string& vertexShaderSource, const std::string& fragmentShaderSource)
 	{
+		// Create an empty shader program and initialize it with an ID
+        m_RendererID = glCreateProgram();
+
 		// Create an empty vertex shader handle
         unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
@@ -62,7 +65,7 @@ namespace Koffieboon
             glDeleteShader(vertexShader);
 
             KB_CORE_ERROR("{0}", infoLog.data());
-            KASSERT(false, "Fragment shader compilation failure!");
+            KASSERT_MSG(false, "Fragment shader compilation failure!");
             return;
         }
 
@@ -70,8 +73,7 @@ namespace Koffieboon
 		// Link the vertex and fragment shader into a shader program
 
 		// Create an empty shader program handle
-        m_ShaderRendererID = glCreateProgram();
-		GLuint shaderProgram = m_ShaderRendererID;
+		unsigned int shaderProgram = m_RendererID;
 
 		// Attach the vertex and fragment shaders to the shader program
         glAttachShader(shaderProgram, vertexShader);
@@ -98,7 +100,7 @@ namespace Koffieboon
             glDeleteShader(fragmentShader);
 
             KB_CORE_ERROR("{0}", infoLog.data());
-            KASSERT(false, "Shader link failure!");
+            KASSERT_MSG(false, "Shader link failure!");
             return;
         }
 
@@ -109,12 +111,12 @@ namespace Koffieboon
 
 	Shader::~Shader()
 	{
-		glDeleteProgram(m_ShaderRendererID);
+		glDeleteProgram(m_RendererID);
 	}
 
 	void Shader::Bind() const
 	{
-		glUseProgram(m_ShaderRendererID);
+		glUseProgram(m_RendererID);
 	}
 
 	void Shader::Unbind() const

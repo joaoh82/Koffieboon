@@ -23,8 +23,9 @@ namespace Koffieboon
 
 	private:
 		/// <summary>
-		/// m_ShaderRendererID is an unsigned integer that represents the shader renderer ID.
+		/// m_RendererID is an unsigned integer that represents the shader renderer ID.
+		/// unsigned int
 		/// </summary>
-		unsigned int m_ShaderRendererID;
+		uint32_t m_RendererID;
 	};
 } // namespace Koffieboon

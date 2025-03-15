@@ -52,44 +52,19 @@ namespace Koffieboon
 		PushOverlay(m_ImGuiLayer);
 
 
-		// set up vertex data (and buffer(s)) and configure vertex attributes
-		// ------------------------------------------------------------------
-		float vertices[] = {
-			 0.3f,  0.5f, 0.0f,  // top right
-			 0.5f, -0.5f, 0.0f,  // bottom right
-			-0.5f, -0.5f, 0.0f,  // bottom left
-			-0.5f,  0.5f, 0.0f   // top left 
-		};
-		unsigned int indices[] = {  // note that we start from 0!
-			0, 1, 3,  // first Triangle
-			1, 2, 3   // second Triangle
+		float vertices[3 * 3] = {
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f,
+			 0.0f,  0.5f, 0.0f
 		};
 
-		glGenVertexArrays(1, &m_VertexArray);
-		glGenBuffers(1, &m_VertexBuffer);
-		glGenBuffers(1, &m_IndexBuffer);
+		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
-		// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-		glBindVertexArray(m_VertexArray);
-
-		glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
-		// note that this is allowed, the call to glVertexAttribPointer registered m_VertexBuffer as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-		// remember: do NOT unbind the m_IndexBuffer while a m_VertexArray is active as the bound element buffer object IS stored in the m_VertexArray; keep the m_IndexBuffer bound.
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-		// You can unbind the m_VertexArray afterwards so other m_VertexArray calls won't accidentally modify this m_VertexArray, but this rarely happens. Modifying other
-		// m_VertexArrays requires a call to glBindVertexArray anyways so we generally don't unbind m_VertexArrays (nor m_VertexBuffers) when it's not directly necessary.
-		glBindVertexArray(0);
+		uint32_t indices[3] = { 0, 1, 2 };
+		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 
 		// uncomment this call to draw in wireframe polygons.
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -147,7 +122,7 @@ namespace Koffieboon
 			// but we'll do so to keep things a bit more organized
 			glBindVertexArray(m_VertexArray); 
 			//glDrawArrays(GL_TRIANGLES, 0, 6);
-			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, 0);
 			// glBindVertexArray(0); // no need to unbind it every time 
 
 			// Update layers
