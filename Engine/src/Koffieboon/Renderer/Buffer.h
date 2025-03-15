@@ -11,9 +11,22 @@ namespace Koffieboon
 	public:
 		virtual ~VertexBuffer() {}
 
+		/// <summary>
+		/// Bind is a function that binds the vertex buffer.
+		/// </summary>
 		virtual void Bind() const = 0;
+
+		/// <summary>
+		/// Unbind is a function that unbinds the vertex buffer.
+		/// </summary>
 		virtual void Unbind() const = 0;
 
+		/// <summary>
+		/// Create is a static function that creates a vertex buffer.
+		/// </summary>
+		/// <param name="vertices"></param>
+		/// <param name="size"></param>
+		/// <returns></returns>
 		static VertexBuffer* Create(float* vertices, uint32_t size);
 	};
 

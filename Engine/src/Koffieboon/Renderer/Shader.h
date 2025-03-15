@@ -2,24 +2,29 @@
 
 #include <string>
 
+/// <summary>
+/// Shader.h is a header file that contains the Shader class.
+/// </summary>
+
 namespace Koffieboon
 {
 	class Shader
 	{
 	public:
-		Shader(const std::string& vertexShaderSource, const std::string& fragmentShaderSource);
 
-		~Shader();
+		virtual ~Shader() {};
 
 		/// <summary>
 		/// Bind is a function that binds the shader.
 		/// </summary>
-		void Bind() const;
+		virtual void Bind() const = 0;
 
 		/// <summary>
 		/// Unbind is a function that unbinds the shader.
 		/// </summary>
-		void Unbind() const;
+		virtual void Unbind() const = 0;
+
+		static Shader* Create(const std::string& vertexShaderSource, const std::string& fragmentShaderSource);
 
 	private:
 		/// <summary>

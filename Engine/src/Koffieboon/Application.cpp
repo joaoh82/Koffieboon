@@ -70,7 +70,7 @@ namespace Koffieboon
 		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 		// Reset the shader
-		m_Shader.reset(new Shader(vertexShaderSource, fragmentShaderSource));
+		m_Shader.reset(Shader::Create(vertexShaderSource, fragmentShaderSource));
 
 	}
 
