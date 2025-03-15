@@ -984,6 +984,9 @@
     <ClInclude Include="src\Koffieboon\Platform\OpenGL\OpenGLShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Koffieboon\Renderer\BufferLayout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Koffieboon\Application.cpp">

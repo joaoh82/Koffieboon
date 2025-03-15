@@ -128,6 +128,7 @@
     <ClInclude Include="src\Koffieboon\Platform\Windows\WindowsGLFW.h" />
     <ClInclude Include="src\Koffieboon\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Koffieboon\Renderer\Buffer.h" />
+    <ClInclude Include="src\Koffieboon\Renderer\BufferLayout.h" />
     <ClInclude Include="src\Koffieboon\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Koffieboon\Renderer\Renderer.h" />
     <ClInclude Include="src\Koffieboon\Renderer\Shader.h" />

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Koffieboon/Renderer/BufferLayout.h"
+
 /// <summary>
 /// Buffer.h is a header file that contains the VertexBuffer and IndexBuffer classes.
 /// </summary>
@@ -20,6 +22,10 @@ namespace Koffieboon
 		/// Unbind is a function that unbinds the vertex buffer.
 		/// </summary>
 		virtual void Unbind() const = 0;
+
+		virtual const BufferLayout& GetLayout() const = 0;
+
+		virtual void SetLayout(const BufferLayout& layout) = 0;
 
 		/// <summary>
 		/// Create is a static function that creates a vertex buffer.
