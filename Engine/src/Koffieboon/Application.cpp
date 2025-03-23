@@ -98,6 +98,7 @@ namespace Koffieboon
 
 		uint32_t index = 0;
 		const auto& layout = m_VertexBuffer->GetLayout();
+		// Bind the vertex array
 		for (const auto& element : layout)
 		{
 			glEnableVertexAttribArray(index);
@@ -109,9 +110,8 @@ namespace Koffieboon
 				(const void*)element.Offset);
 			index++;
 		}
-
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
+		//glEnableVertexAttribArray(0);
+		//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
 		uint32_t indices[3] = { 0, 1, 2 };
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
