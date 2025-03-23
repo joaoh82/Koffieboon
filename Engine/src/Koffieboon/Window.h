@@ -26,7 +26,7 @@ namespace Koffieboon
 			using EventCallbackFn = std::function<void(Event&)>;
 			
 			// Class destructor
-			virtual ~Window() {};
+			virtual ~Window() = default;
 
 			virtual void OnUpdate() = 0;
 

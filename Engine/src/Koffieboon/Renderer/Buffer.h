@@ -11,7 +11,7 @@ namespace Koffieboon
 	class VertexBuffer
 	{
 	public:
-		virtual ~VertexBuffer() {}
+		virtual ~VertexBuffer() = default;
 
 		/// <summary>
 		/// Bind is a function that binds the vertex buffer.
@@ -39,7 +39,7 @@ namespace Koffieboon
 	class IndexBuffer
 	{
 	public:
-		virtual ~IndexBuffer() {}
+		virtual ~IndexBuffer() = default;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;

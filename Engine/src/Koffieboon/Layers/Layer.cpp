@@ -8,7 +8,4 @@ namespace Koffieboon
 	{
 	}
 
-	Layer::~Layer()
-	{
-	}
 } // namespace Koffieboon
