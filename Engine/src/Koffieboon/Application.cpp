@@ -11,21 +11,22 @@ namespace Koffieboon
 
 	Application* Application::s_Instance = nullptr;
 
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
+	static GLenum BufferElemenDataTypeToOpenGLBaseType(BufferElementDataType type)
 	{
 		switch (type)
 		{
-		case Koffieboon::ShaderDataType::Float:    return GL_FLOAT;
-		case Koffieboon::ShaderDataType::Float2:   return GL_FLOAT;
-		case Koffieboon::ShaderDataType::Float3:   return GL_FLOAT;
-		case Koffieboon::ShaderDataType::Float4:   return GL_FLOAT;
-		case Koffieboon::ShaderDataType::Mat3:     return GL_FLOAT;
-		case Koffieboon::ShaderDataType::Mat4:     return GL_FLOAT;
-		case Koffieboon::ShaderDataType::Int:      return GL_INT;
-		case Koffieboon::ShaderDataType::Int2:     return GL_INT;
-		case Koffieboon::ShaderDataType::Int3:     return GL_INT;
-		case Koffieboon::ShaderDataType::Int4:     return GL_INT;
-		case Koffieboon::ShaderDataType::Bool:     return GL_BOOL;
+		case Koffieboon::BufferElementDataType::Float:    return GL_FLOAT;
+		case Koffieboon::BufferElementDataType::Vec2:   return GL_FLOAT;
+		case Koffieboon::BufferElementDataType::Vec3:   return GL_FLOAT;
+		case Koffieboon::BufferElementDataType::Vec4:   return GL_FLOAT;
+		case Koffieboon::BufferElementDataType::Mat3:     return GL_FLOAT;
+		case Koffieboon::BufferElementDataType::Mat4:     return GL_FLOAT;
+		case Koffieboon::BufferElementDataType::Int:      return GL_INT;
+		case Koffieboon::BufferElementDataType::IVec2:     return GL_INT;
+		case Koffieboon::BufferElementDataType::IVec3:     return GL_INT;
+		case Koffieboon::BufferElementDataType::IVec4:     return GL_INT;
+		case Koffieboon::BufferElementDataType::UInt:     return GL_UNSIGNED_INT;
+		case Koffieboon::BufferElementDataType::Bool:     return GL_BOOL;
 		}
 
 		KASSERT_MSG(false, "Unknown ShaderDataType!");
@@ -89,8 +90,8 @@ namespace Koffieboon
 
 		{
 			BufferLayout layout = {
-				{ ShaderDataType::Float3, "a_Position" },
-				{ ShaderDataType::Float4, "a_Color" }
+				{ BufferElementDataType::Vec3, "a_Position" },
+				{ BufferElementDataType::Vec4, "a_Color" }
 			};
 
 			m_VertexBuffer->SetLayout(layout);
@@ -104,7 +105,7 @@ namespace Koffieboon
 			glEnableVertexAttribArray(index);
 			glVertexAttribPointer(index,
 				element.GetComponentCount(),
-				ShaderDataTypeToOpenGLBaseType(element.Type),
+				BufferElemenDataTypeToOpenGLBaseType(element.Type),
 				element.Normalized ? GL_TRUE : GL_FALSE,
 				layout.GetStride(),
 				(const void*)element.Offset);

@@ -10,29 +10,30 @@ namespace Koffieboon
 	/// <summary>
 	/// ShaderDataType is an enum class that contains the data types.
 	/// </summary>
-	enum class ShaderDataType
+	enum class BufferElementDataType
 	{
-		None = 0, Float, Float2, Float3, Float4, Mat3, Mat4, Int, Int2, Int3, Int4, Bool
+		None = 0, Float, Vec2, Vec3, Vec4, Mat3, Mat4, Int, IVec2, IVec3, IVec4, UInt, Bool
 	};
 
-	static uint32_t ShaderDataTypeSize(ShaderDataType type)
+	static uint32_t BufferElementDataTypeSize(BufferElementDataType type)
 	{
 		switch (type)
 		{
-		case ShaderDataType::Float:    return 4;
-		case ShaderDataType::Float2:   return 4 * 2;
-		case ShaderDataType::Float3:   return 4 * 3;
-		case ShaderDataType::Float4:   return 4 * 4;
-		case ShaderDataType::Mat3:     return 4 * 3 * 3;
-		case ShaderDataType::Mat4:     return 4 * 4 * 4;
-		case ShaderDataType::Int:      return 4;
-		case ShaderDataType::Int2:     return 4 * 2;
-		case ShaderDataType::Int3:     return 4 * 3;
-		case ShaderDataType::Int4:     return 4 * 4;
-		case ShaderDataType::Bool:     return 1;
+		case BufferElementDataType::Float:    return 4;
+		case BufferElementDataType::Vec2:   return 4 * 2;
+		case BufferElementDataType::Vec3:   return 4 * 3;
+		case BufferElementDataType::Vec4:   return 4 * 4;
+		case BufferElementDataType::Mat3:     return 4 * 3 * 3;
+		case BufferElementDataType::Mat4:     return 4 * 4 * 4;
+		case BufferElementDataType::Int:      return 4;
+		case BufferElementDataType::IVec2:     return 4 * 2;
+		case BufferElementDataType::IVec3:     return 4 * 3;
+		case BufferElementDataType::IVec4:     return 4 * 4;
+		case BufferElementDataType::UInt:     return 4;
+		case BufferElementDataType::Bool:     return 1;
 		}
 
-		KASSERT_MSG(false, "Unknown ShaderDataType!");
+		KASSERT_MSG(false, "Unknown BufferElementDataType!");
 		return 0;
 	}
 
@@ -42,15 +43,15 @@ namespace Koffieboon
 	struct BufferElement
 	{
 		std::string Name;
-		ShaderDataType Type;
+		BufferElementDataType Type;
 		uint32_t Size;
 		uint32_t Offset;
 		bool Normalized;
 
 		BufferElement() {}
 
-		BufferElement(ShaderDataType type, const std::string& name, bool normalized = false)
-			: Name(name), Type(type), Size(ShaderDataTypeSize(type)), Offset(0), Normalized(normalized)
+		BufferElement(BufferElementDataType type, const std::string& name, bool normalized = false)
+			: Name(name), Type(type), Size(BufferElementDataTypeSize(type)), Offset(0), Normalized(normalized)
 		{
 		}
 
@@ -58,20 +59,22 @@ namespace Koffieboon
 		{
 			switch (Type)
 			{
-			case ShaderDataType::Float:   return 1;
-			case ShaderDataType::Float2:  return 2;
-			case ShaderDataType::Float3:  return 3;
-			case ShaderDataType::Float4:  return 4;
-			case ShaderDataType::Mat3:    return 3 * 3;
-			case ShaderDataType::Mat4:    return 4 * 4;
-			case ShaderDataType::Int:     return 1;
-			case ShaderDataType::Int2:    return 2;
-			case ShaderDataType::Int3:    return 3;
-			case ShaderDataType::Int4:    return 4;
-			case ShaderDataType::Bool:    return 1;
+			case BufferElementDataType::Float:   return 1;
+			case BufferElementDataType::Vec2:  return 2;
+			case BufferElementDataType::Vec3:  return 3;
+			case BufferElementDataType::Vec4:  return 4;
+			case BufferElementDataType::Mat3:    return 3 * 3;
+			case BufferElementDataType::Mat4:    return 4 * 4;
+			case BufferElementDataType::Int:     return 1;
+			case BufferElementDataType::IVec2:    return 2;
+			case BufferElementDataType::IVec3:    return 3;
+			case BufferElementDataType::UInt:    return 1;
+			case BufferElementDataType::IVec4:    return 4;
+
+			case BufferElementDataType::Bool:    return 1;
 			}
 
-			KASSERT_MSG(false, "Unknown ShaderDataType!");
+			KASSERT_MSG(false, "Unknown BufferElementDataType!");
 			return 0;
 		}
 	};
